@@ -10,14 +10,14 @@
     {% load static %}
 
     <link rel="stylesheet" href="{% static 'magictip/style.css' %}">
-    <title>My Project</title>
+    <title>MagicTip</title>
   </head>
   <body>
     <a id="skip-nav" class="screenreader-text" href="#main-content">
       Skip Navigation or Skip to Content
     </a>
     <main>
-      
+
       <section>
         <div class="container">
           <div class="row">
@@ -32,11 +32,19 @@
         <div class="container">
           <div class="row">
             <div class="col-lg-12 d-flex justify-content-center mt-5">
-              {% if image_url %}
-              <img src="{{ image_url }}" alt="Card Image">
-              {% else %}
-                <p>Card image not available</p>
-              {% endif %}
+              <div class="image-container">
+                {% if image_url %}
+                <img src="{{ image_url }}" alt="Card Image">
+                <div class="hover-area top-left">
+                  <div class="tooltip">Text for top-left area</div>
+                </div>
+                <div class="hover-area bottom-right">
+                  <div class="tooltip">Text for bottom-right area</div>
+                </div>
+                {% else %}
+                  <p>Card image not available</p>
+                {% endif %}
+              </div>
             </div>
           </div>
         </div>
