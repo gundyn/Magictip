@@ -16,11 +16,14 @@ def get_card_image_url(card_name):
     return None
 
 def card_image(request):
-  card_name = "Mountain"  # Replace with your desired card name
+  card_name = "Slimefoot, the Stowaway"  # Replace with your desired card name
   image_url = get_card_image_url(card_name)
 
   if image_url:
-    context = {'image_url': image_url}
+    context = {
+      'image_url': image_url,
+      'card_name': card_name,
+      }
     return render(request, 'card_image.html', context)
   else:
     return HttpResponse("Error fetching image URL")  # For debugging
